@@ -1,0 +1,6 @@
+{
+  "name": "Maher Dental & Aesthetics Clinic",
+  "description": "High-converting, professional web application for Maher Dental & Aesthetics Clinic in Quetta, Pakistan. Features evening appointment booking, treatment finder, before & after slider, and patient reviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
