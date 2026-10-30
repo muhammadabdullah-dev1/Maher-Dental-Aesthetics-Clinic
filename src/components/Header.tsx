@@ -6,9 +6,10 @@ interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onOpenBooking: (treatment?: string) => void;
+  onOpenStaffPortal?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onOpenBooking }) => {
+export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onOpenBooking, onOpenStaffPortal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const status = getClinicOpenStatus();
 
@@ -59,6 +60,14 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onOpenB
             >
               Facebook
             </a>
+            {onOpenStaffPortal && (
+              <button
+                onClick={onOpenStaffPortal}
+                className="text-[#B3F6FF] hover:text-white text-[11px] font-medium transition-colors bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded"
+              >
+                Staff Portal
+              </button>
+            )}
           </div>
         </div>
       </div>

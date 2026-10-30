@@ -8,12 +8,14 @@ import { ServicesPage } from './pages/ServicesPage';
 import { ContactPage } from './pages/ContactPage';
 import { ReviewsCarousel } from './components/ReviewsCarousel';
 import { AppointmentForm } from './components/AppointmentForm';
+import { StaffPortalModal } from './components/StaffPortalModal';
 import { X } from 'lucide-react';
 import { CLINIC_CONFIG } from './config/clinicData';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
   const [bookingModalOpen, setBookingModalOpen] = useState<boolean>(false);
+  const [staffPortalOpen, setStaffPortalOpen] = useState<boolean>(false);
   const [selectedTreatment, setSelectedTreatment] = useState<string>('');
 
   // Handle opening the appointment booking form
@@ -42,6 +44,7 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={handleNavigate}
         onOpenBooking={(treatment) => handleOpenBooking(treatment)}
+        onOpenStaffPortal={() => setStaffPortalOpen(true)}
       />
 
       {/* Main Dynamic View */}
@@ -82,10 +85,17 @@ export default function App() {
       <Footer
         onNavigate={handleNavigate}
         onOpenBooking={() => handleOpenBooking()}
+        onOpenStaffPortal={() => setStaffPortalOpen(true)}
       />
 
       {/* Mobile-Only Sticky Bottom Bar (Call & WhatsApp) */}
       <MobileStickyBar />
+
+      {/* Clinic Staff / Reception Portal Modal */}
+      <StaffPortalModal
+        isOpen={staffPortalOpen}
+        onClose={() => setStaffPortalOpen(false)}
+      />
 
       {/* Appointment Booking Modal */}
       {bookingModalOpen && (

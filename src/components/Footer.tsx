@@ -5,9 +5,10 @@ import { CLINIC_CONFIG } from '../config/clinicData';
 interface FooterProps {
   onNavigate: (tabId: string) => void;
   onOpenBooking: () => void;
+  onOpenStaffPortal?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking, onOpenStaffPortal }) => {
   return (
     <footer className="bg-[#002429] text-white pt-16 pb-24 sm:pb-16 border-t border-[#003840]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,6 +181,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
             <span>Sterilized Class-B Autoclave Protocol</span>
             <span aria-hidden="true">·</span>
             <span>Quetta, Balochistan</span>
+            {onOpenStaffPortal && (
+              <>
+                <span aria-hidden="true">·</span>
+                <button
+                  onClick={onOpenStaffPortal}
+                  className="text-[#B3F6FF] hover:underline font-medium"
+                >
+                  Staff Portal
+                </button>
+              </>
+            )}
           </div>
         </div>
 
